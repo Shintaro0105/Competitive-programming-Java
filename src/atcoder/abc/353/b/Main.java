@@ -4,17 +4,34 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] h;
-        h = new int[n];
+        int k = sc.nextInt();
+        int[] a;
+        a = new int[n];
         for(int i=0;i<n;i++){
-            h[i]=sc.nextInt();
+            a[i]=sc.nextInt();
         }
-        for(int i=1;i<n;i++){
-            if(h[0]<h[i]){
-                System.out.println(i+1);
-                System.exit(0);
+        int ans = 0;
+        int i = 0, j = 0;
+        while(i < n){
+            int sum = 0;
+            j = i;
+            while(j < n){
+                if(sum + a[j] <= k){
+                    sum += a[j];
+                    j++;
+                    if(j == n){
+                        ans++;
+                        break;
+                    }
+                }else{
+                    ans++;
+                    break;
+                }
             }
+            // System.out.println(i);
+            // System.out.println(j);
+            i = j;
         }
-        System.out.println(-1);
+        System.out.println(ans);
     }
 }
