@@ -32,8 +32,9 @@ public class Main {
         }
         long ans=0;
         for(int i=1;i<n;i++){
-            ans+=r[c[i]][i-1]+i*r[0][i];
+            ans+=r[c[i]][i-1]+i*a[i];
             ans%=MOD;
+            //System.out.println(ans);
         }
         System.out.println(ans);
 	}
